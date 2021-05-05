@@ -7,19 +7,21 @@ public class GUI implements ActionListener{
 
     public JFrame window;
     public JPanel mainPanel;
+    public JScrollPane scrollPane;
     public Font dayFont = new Font("Courier", Font.BOLD, 20);
     public Font inOutFont = new Font("Courier", Font.PLAIN, 20);
 
     public GUI(){
 
-        window = new JFrame();
+        window = new JFrame("Timecard Calculator");
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(450,1080);
+        window.setSize(450,700);
     
         
         mainPanel = new JPanel();
         mainPanel.setLayout(null);
+        mainPanel.setPreferredSize(new Dimension(1000,1000));
 
         JLabel sundayMainLabel = new JLabel("Sunday");
         JLabel saturdayMainLabel = new JLabel("Saturday");
@@ -714,15 +716,22 @@ public class GUI implements ActionListener{
         hoursLabel.setFont(new Font("Courier", Font.BOLD, 40));
         mainPanel.add(hoursLabel);
 
+        
+        scrollPane = new JScrollPane(mainPanel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+        
+        
 
-
-        window.add(mainPanel);
+        window.add(scrollPane);
         window.setVisible(true);
 
 
     }
 
     public JButton submitButton;
+
 
     public JTextField sundayFinalOutHourField;
     public JTextField sundayFinalOutMinuteField;
