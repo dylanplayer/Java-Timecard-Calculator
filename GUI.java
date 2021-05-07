@@ -16,7 +16,10 @@ public class GUI implements ActionListener{
         window = new JFrame("Timecard Calculator");
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(450,700);
+        window.setSize(400,700);
+
+				ImageIcon logo = new ImageIcon("clock.png");
+				window.setIconImage(logo.getImage());
     
         
         mainPanel = new JPanel();
@@ -936,12 +939,6 @@ public class GUI implements ActionListener{
 
         
     }
-
-
-
-
-
-    
 
 
     
